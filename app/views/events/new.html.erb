@@ -1,0 +1,25 @@
+<h2>Add an event</h2>
+
+<%= form_for @event do |f| %>
+  <p>
+  <%= f.label :day %>
+  <%= f.text_field :day %>
+  </p>
+
+  <p>
+  <%= f.label :start %>
+  <%= f.time_select :start %>
+  </p>
+
+  <p>
+  <%= f.label :end %>
+  <%= f.time_select :end %>
+  </p>
+
+  <p>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  </p>
+
+  <%= f.submit %>
+<% end %>

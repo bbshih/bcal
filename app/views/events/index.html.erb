@@ -1,7 +1,7 @@
 <h1>bCal</h1>
 
 <div id="actions">
-  <a href="#">Add Event</a>
+  <%= link_to "Add Event", new_event_path %>
 </div>
 
 <table id="calendar">
@@ -15,7 +15,14 @@
     <th>Saturday</th>
   </tr>
   <tr>
-    <td>1:00PM-2:00pm</td>
+    <td>
+    <% @events.where(:day == "Sunday").each do |e| %>
+      <span class="time"><%= e.start.to_s(:just_time) + "-" + e.end.to_s(:just_time) %></span>
+      <br>
+      <%= e.description %>
+      <hr>
+    <% end %>
+    </td>
     <td>1:00PM-2:00pm</td>
     <td>1:00PM-2:00pm</td>
     <td>1:00PM-2:00pm</td>
