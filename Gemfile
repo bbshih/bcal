@@ -43,3 +43,23 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+group :test, :development do
+  gem 'rspec-rails', '~> 2.11'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-debugger'
+  gem 'binding_of_caller'
+
+  gem 'better_errors'
+end
+
+group :development do
+  gem "annotate", "~> 2.5.0"
+end
+
+group :test do
+  gem 'capybara'
+  gem 'factory_girl'
+end
