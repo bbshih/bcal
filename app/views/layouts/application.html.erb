@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id="container">
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
       <div class="alert <%= name == :notice ? "success" : "error" %>">
@@ -17,6 +17,8 @@
   <% end %>
 
 <%= yield %>
+
+</div>
 
 </body>
 </html>

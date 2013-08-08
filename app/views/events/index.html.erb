@@ -2,6 +2,11 @@
 
 <div id="actions">
   <%= link_to "Add Event", new_event_path %>
+  <%= form_for @event do |f| %>
+    <%= f.label :full_details %>
+    <%= f.text_field :full_details %>
+    <%= f.submit %>
+  <% end %>
 </div>
 
 <table id="calendar">
@@ -15,10 +20,10 @@
     <td class="day">
       <% if @ordered_events_by_day[d] %>
         <% @ordered_events_by_day[d].each do |e| %>
-          <span class="time"> <%= e.start_time.to_s(:just_time) + "-" + e.end_time.to_s(:just_time) %></span>
-          <br>
-          <%= e.description %>
-          <br>
+          <div class="event">
+            <div class="time"><%= e.start_time.to_s(:just_time) + "-" + e.end_time.to_s(:just_time) %></div>
+            <%= e.description %>
+          </div>
         <% end %>
       <% end %>
     </td>

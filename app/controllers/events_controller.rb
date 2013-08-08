@@ -3,6 +3,8 @@ class EventsController < ApplicationController
     @events = Event.order('start_time ASC')
     @ordered_events_by_day = @events.group_by(&:day)
     @days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+    @event = Event.new
   end
 
   def new
@@ -21,7 +23,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:day, :start_time, :end_time, :description)
+    params.require(:event).permit(:full_details, :day, :start_time, :end_time, :description)
   end
 
 end

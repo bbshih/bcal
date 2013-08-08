@@ -14,19 +14,36 @@
 
 $error: #f00;
 
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
 #actions {
   padding: 1em 0;
 }
 
-#calendar th, td{
-  border: 1px solid #000;
-  width: 150px;
-  vertical-align: top;
+#calendar {
+  th {
+    border: 1px solid #000;
+  }
+  th, td {
+    width: 117px;
+    vertical-align: top;
+    margin-left: 7px;
+    margin-right: 7px;
+  }
 }
 
-.time {
-  color: #666;
+.event {
+  padding-bottom: .9em;
+  .time {
+    font-size: .9em;
+    color: #666;
+  }
 }
+
 
 
 .field_with_errors {
