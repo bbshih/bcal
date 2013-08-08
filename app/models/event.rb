@@ -12,8 +12,8 @@
 #
 
 class Event < ActiveRecord::Base
-  # validates :day, :start_time, :end_time, :description, presence: true
-  # validate :end_cannot_be_before_start
+  validates :day, :start_time, :end_time, :description, presence: true
+  validate :end_cannot_be_before_start
 
   def end_cannot_be_before_start
     if start_time > end_time
@@ -25,6 +25,7 @@ class Event < ActiveRecord::Base
   end
 
   def full_details=(details)
+    # details example: Monday 12:00pm-1:30pm lunch with Billy
     split_details = details.split
     self.day = split_details[0]
     split_times = split_details[1].split('-')

@@ -1,11 +1,16 @@
-<h1>bCal</h1>
+
 
 <div id="actions">
   <%= link_to "Add Event", new_event_path %>
   <%= form_for @event do |f| %>
-    <%= f.label :full_details %>
-    <%= f.text_field :full_details %>
-    <%= f.submit %>
+    <div id="quick_add">
+      <%= f.label :full_details, "Quick add" %>
+      <span class="example">(Ex: Monday 12:00pm-1:30pm Lunch with Billy)</span>
+      <br>
+      <%= f.text_field :full_details %>
+
+      <%= f.submit %>
+    </div>
   <% end %>
 </div>
 

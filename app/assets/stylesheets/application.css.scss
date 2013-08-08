@@ -12,16 +12,68 @@
  *= require_tree .
  */
 
-$error: #f00;
+$error: #ff0000;
+$lightText: #666666;
+
+$primaryAction: #ff8040;
+$secondaryAction: #81abad;
+
+body {
+  background-color: #393939;
+  a {
+    &:link, &:visited {
+      color: $secondaryAction;
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+header h1 {
+  a {
+    $titleColor:$primaryAction;
+    &:link, &:visited {
+      color: $titleColor;
+    }
+    &:hover {
+      color: darken($titleColor, 20%)
+    }
+  }
+}
 
 #container {
   margin-left: auto;
   margin-right: auto;
   width: 960px;
+  background-color: #fdfff4;
+  padding: 20px;
+  min-height: 500px;
+}
+
+.alert {
+  background-color: #ffc43f;
+  border-radius: 3px;
+  padding: 10px;
+}
+#flash_notice {
+
 }
 
 #actions {
   padding: 1em 0;
+
+  #quick_add {
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    margin: .5em 0;
+    padding: 5px;
+
+    .example {
+      color: $lightText;
+    }
+  }
 }
 
 #calendar {
@@ -40,7 +92,7 @@ $error: #f00;
   padding-bottom: .9em;
   .time {
     font-size: .9em;
-    color: #666;
+    color: $lightText;
   }
 }
 
