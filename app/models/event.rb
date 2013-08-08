@@ -4,8 +4,8 @@
 #
 #  id          :integer          not null, primary key
 #  day         :string(255)
-#  start_time  :time
-#  end_time    :time
+#  start_time  :datetime
+#  end_time    :datetime
 #  description :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
@@ -25,9 +25,7 @@ class Event < ActiveRecord::Base
   end
 
   def full_details=(details)
-    if details.blank?
-      errors.add(:full_details, "Please enter in a valid statement")
-    else
+    if !details.blank?
       # details example: Monday 12:00pm-1:30pm lunch with Billy
       split_details = details.split
       self.day = split_details[0]

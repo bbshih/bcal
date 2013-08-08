@@ -4,8 +4,8 @@
 #
 #  id          :integer          not null, primary key
 #  day         :string(255)
-#  start_time  :time
-#  end_time    :time
+#  start_time  :datetime
+#  end_time    :datetime
 #  description :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime

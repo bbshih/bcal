@@ -12,15 +12,16 @@
  *= require_tree .
  */
 
-$error: #ff0000;
 $lightText: #666666;
-
 $primaryAction: #ff8040;
 $secondaryAction: #81abad;
+$error: #ffc43f;
+
+$radius: 3px;
 
 @mixin button($tbPad, $lrPad) {
   padding: $tbPad $lrPad;
-  border-radius: 3px;
+  border-radius: $radius;
   display: inline-block;
   background-color: $primaryAction;
   color: #ffffff;
@@ -65,12 +66,9 @@ header h1 {
 }
 
 .alert {
-  background-color: #ffc43f;
-  border-radius: 3px;
+  background-color: $error;
+  border-radius: $radius;
   padding: 10px;
-}
-#flash_notice {
-
 }
 
 #actions {
@@ -82,7 +80,7 @@ header h1 {
 
   #quick_add {
     border: 1px solid #d0d0d0;
-    border-radius: 3px;
+    border-radius: $radius;
     margin: .5em 0;
     padding: 5px;
 
@@ -124,4 +122,5 @@ input[type="submit"] {
 
 #error_explanation {
   border: 1px solid $error;
+  padding: 5px;
 }

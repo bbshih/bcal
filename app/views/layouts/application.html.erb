@@ -11,13 +11,7 @@
   <header>
     <h1><%= link_to "bCal", :root %></h1>
   </header>
-  <% flash.each do |name, msg| %>
-    <% if msg.is_a?(String) %>
-      <div class="alert">
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      </div>
-    <% end %>
-  <% end %>
+  <%= render "alert" %>
 
 <%= yield %>
 
