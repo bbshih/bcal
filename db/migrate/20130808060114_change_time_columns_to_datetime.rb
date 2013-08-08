@@ -1,6 +1,8 @@
 class ChangeTimeColumnsToDatetime < ActiveRecord::Migration
   def change
-    change_column :events, :start_time, :datetime
-    change_column :events, :end_time, :datetime
+    remove_column :events, :start_time
+    remove_column :events, :end_time
+    add_column :events, :start_time, :datetime
+    add_column :events, :end_time, :datetime
   end
 end

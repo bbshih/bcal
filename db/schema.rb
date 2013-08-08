@@ -13,13 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20130808060114) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "events", force: true do |t|
     t.string   "day"
-    t.datetime "start_time"
-    t.datetime "end_time"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
 end
