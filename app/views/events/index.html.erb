@@ -15,7 +15,7 @@
     <td class="day">
       <% if @ordered_events_by_day[d] %>
         <% @ordered_events_by_day[d].each do |e| %>
-          <span class="time"> <%= e.start.to_s(:just_time) + "-" + e.end.to_s(:just_time) %></span>
+          <span class="time"> <%= e.start_time.to_s(:just_time) + "-" + e.end_time.to_s(:just_time) %></span>
           <br>
           <%= e.description %>
           <br>

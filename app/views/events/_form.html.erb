@@ -1,0 +1,35 @@
+<% if @event.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h3>
+
+    <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @event do |f| %>
+  <p>
+  <%= f.label :day %>
+  <%= f.select(:day, options_for_select(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])) %>
+  </p>
+
+  <p>
+  <%= f.label :start_time %>
+  <%= f.time_select :start_time %>
+  </p>
+
+  <p>
+  <%= f.label :end_time %>
+  <%= f.time_select :end_time %>
+  </p>
+
+  <p>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
