@@ -1,4 +1,10 @@
 class EventsController < ApplicationController
+  def index
+    @events = Event.order('start ASC')
+    @ordered_events_by_day = @events.group_by(&:day)
+    @days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  end
+
   def new
     @event = Event.new
   end
@@ -10,10 +16,6 @@ class EventsController < ApplicationController
     else
       render action: :new, alert: "Event not added"
     end
-  end
-
-  def index
-    @events = Event.all
   end
 
   private

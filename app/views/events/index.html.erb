@@ -6,28 +6,22 @@
 
 <table id="calendar">
   <tr>
-    <th>Sunday</th>
-    <th>Monday</th>
-    <th>Tuesday</th>
-    <th>Wednesday</th>
-    <th>Thursday</th>
-    <th>Friday</th>
-    <th>Saturday</th>
+    <% @days.each do |d| %>
+    <th><%= d %></th>
+    <% end %>
   </tr>
   <tr>
-    <td>
-    <% @events.where(:day == "Sunday").each do |e| %>
-      <span class="time"><%= e.start.to_s(:just_time) + "-" + e.end.to_s(:just_time) %></span>
-      <br>
-      <%= e.description %>
-      <hr>
-    <% end %>
+    <% @days.each do |d| %>
+    <td class="day">
+      <% if @ordered_events_by_day[d] %>
+        <% @ordered_events_by_day[d].each do |e| %>
+          <span class="time"> <%= e.start.to_s(:just_time) + "-" + e.end.to_s(:just_time) %></span>
+          <br>
+          <%= e.description %>
+          <br>
+        <% end %>
+      <% end %>
     </td>
-    <td>1:00PM-2:00pm</td>
-    <td>1:00PM-2:00pm</td>
-    <td>1:00PM-2:00pm</td>
-    <td>1:00PM-2:00pm</td>
-    <td>1:00PM-2:00pm</td>
-    <td>1:00PM-2:00pm</td>
+    <% end %>
   </tr>
 </table>

@@ -15,10 +15,14 @@
 #actions {
   padding: 1em 0;
 }
+
 #calendar th, td{
   border: #000 solid 1px;
+  width: 150px;
+  vertical-align: top;
 }
 
 .time {
   color: #666;
 }
+

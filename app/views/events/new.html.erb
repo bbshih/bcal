@@ -3,7 +3,7 @@
 <%= form_for @event do |f| %>
   <p>
   <%= f.label :day %>
-  <%= f.text_field :day %>
+  <%= f.select(:day, options_for_select(["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])) %>
   </p>
 
   <p>
