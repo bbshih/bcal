@@ -27,7 +27,7 @@
         <% @ordered_events_by_day[d].each do |e| %>
           <div class="event">
             <div class="time"><%= e.start_time.to_s(:just_time) + "-" + e.end_time.to_s(:just_time) %></div>
-            <%= e.description %>
+            <%= link_to e.description, edit_event_path(e) %>
           </div>
         <% end %>
       <% end %>

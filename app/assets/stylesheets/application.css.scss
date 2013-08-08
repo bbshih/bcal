@@ -18,6 +18,18 @@ $lightText: #666666;
 $primaryAction: #ff8040;
 $secondaryAction: #81abad;
 
+@mixin button($tbPad, $lrPad) {
+  padding: $tbPad $lrPad;
+  border-radius: 3px;
+  display: inline-block;
+  background-color: $primaryAction;
+  color: #ffffff;
+  &:hover {
+    background-color: darken($primaryAction, 10%);
+    text-decoration: none;
+  }
+}
+
 body {
   background-color: #393939;
   a {
@@ -64,6 +76,10 @@ header h1 {
 #actions {
   padding: 1em 0;
 
+  a:link, a:visited {
+    @include button(10px, 20px);
+  }
+
   #quick_add {
     border: 1px solid #d0d0d0;
     border-radius: 3px;
@@ -96,7 +112,10 @@ header h1 {
   }
 }
 
-
+input[type="submit"] {
+   @include button(5px, 5px);
+   border: none;
+}
 
 .field_with_errors {
   display: inline;
