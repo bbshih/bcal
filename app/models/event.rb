@@ -30,9 +30,12 @@ class Event < ActiveRecord::Base
       split_details = details.split
       if split_details.length > 2
         self.day = split_details[0]
+
         split_times = split_details[1].split('-')
-        puts self.start_time = Time.zone.parse(split_times[0])
-        puts self.end_time = Time.zone.parse(split_times[1])
+        # Time.asctime used to keep date and time zone consistent since only time matters
+        # This prevents dates from impacting sorting by time
+        self.start_time = Time.parse(split_times[0]).asctime
+        self.end_time = Time.parse(split_times[1]).asctime
 
         i = 2
         description_text = ""
