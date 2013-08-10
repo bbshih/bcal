@@ -31,8 +31,8 @@ class Event < ActiveRecord::Base
       if split_details.length > 2
         self.day = split_details[0]
         split_times = split_details[1].split('-')
-        puts self.start_time = Time.parse(split_times[0])
-        puts self.end_time = Time.parse(split_times[1])
+        puts self.start_time = Time.zone.parse(split_times[0])
+        puts self.end_time = Time.zone.parse(split_times[1])
 
         i = 2
         description_text = ""
