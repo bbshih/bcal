@@ -28,18 +28,20 @@ class Event < ActiveRecord::Base
     if !details.blank?
       # details example: Monday 12:00pm-1:30pm lunch with Billy
       split_details = details.split
-      self.day = split_details[0]
-      split_times = split_details[1].split('-')
-      self.start_time = Time.parse(split_times[0])
-      self.end_time = Time.parse(split_times[1])
+      if split_details.length > 2
+        self.day = split_details[0]
+        split_times = split_details[1].split('-')
+        puts self.start_time = Time.parse(split_times[0])
+        puts self.end_time = Time.parse(split_times[1])
 
-      i = 2
-      description_text = ""
-      while i < split_details.length
-        description_text += " " + split_details[i]
-        i += 1
+        i = 2
+        description_text = ""
+        while i < split_details.length
+          description_text += " " + split_details[i]
+          i += 1
+        end
+        self.description = description_text
       end
-      self.description = description_text
     end
   end
 end
